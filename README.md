@@ -1,6 +1,3 @@
-Here's a comprehensive README in UK English for your GitHub repository:
-
-***
 
 # Civitai Original Images
 
