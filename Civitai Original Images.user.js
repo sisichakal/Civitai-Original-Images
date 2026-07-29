@@ -1,12 +1,16 @@
 // ==UserScript==
 // @name         _Civitai Original Images & Custom Layout
 // @namespace    http://tampermonkey.net/
-// @version      2.12
+// @version      2.13
 // @description  Display original quality images, fix cropping, adjust gaps, clean layout and filter by megapixels on Civitai.
 // @author       You
 // @match        https://civitai.com/*
 // @match        https://civitai.red/*
 // @icon         https://civitai.com/favicon.ico
+// @homepageURL  https://github.com/sisichakal/Civitai-Original-Images
+// @supportURL   https://github.com/sisichakal/Civitai-Original-Images/issues
+// @updateURL    https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/Civitai%20Original%20Images.user.js
+// @downloadURL  https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/Civitai%20Original%20Images.user.js
 // @grant        GM_info
 // ==/UserScript==
 (function() {
@@ -14,7 +18,7 @@
     const IMAGE_WIDTH = 600;
     const MIN_IMAGE_SIZE = 150;     // Min dimension for processing in galleries/feeds
     const BADGE_MAX_DIMENSION = 320; // Originals with both dimensions below this are site badges/decorations, not gallery images
-    const SCRIPT_VERSION = (typeof GM_info !== 'undefined' && GM_info.script) ? GM_info.script.version : '2.12';
+    const SCRIPT_VERSION = (typeof GM_info !== 'undefined' && GM_info.script) ? GM_info.script.version : '2.13';
     // Default settings
     const DEFAULT_SETTINGS = {
         filterEnabled: false,
