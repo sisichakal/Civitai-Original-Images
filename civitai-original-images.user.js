@@ -9,8 +9,8 @@
 // @icon         https://civitai.com/favicon.ico
 // @homepageURL  https://github.com/sisichakal/Civitai-Original-Images
 // @supportURL   https://github.com/sisichakal/Civitai-Original-Images/issues
-// @updateURL    https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/Civitai%20Original%20Images.user.js
-// @downloadURL  https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/Civitai%20Original%20Images.user.js
+// @updateURL    https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/civitai-original-images.user.js
+// @downloadURL  https://raw.githubusercontent.com/sisichakal/Civitai-Original-Images/main/civitai-original-images.user.js
 // @grant        GM_info
 // ==/UserScript==
 (function() {

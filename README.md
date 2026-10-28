@@ -1,91 +1,38 @@
-
 # Civitai Original Images
 
-A Tampermonkey userscript that displays original quality images with correct aspect ratios on Civitai's image gallery, replacing the optimised thumbnails.
+Userscript serving full-resolution Civitai images, fixing cropping and adding a megapixel filter.
 
-## Features
+[![Userscript](https://img.shields.io/badge/userscript-v2.13-blue)](civitai-original-images.user.js) [![No dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)](#how-it-works)
 
-**High-Quality Images**
-Automatically replaces optimised thumbnails with original quality images at 100% quality with animations enabled.
+Civitai serves compressed previews and crops them to fit its grid. This script gives you the originals, uncropped.
 
-**Correct Aspect Ratios**
-Displays images in their true aspect ratio (600px width) whilst maintaining the original dimensions.
+## What it does
 
-**Visual Quality Indicators**
-Each image features a colour-coded border and megapixel badge indicating resolution quality:
-- Red: Less than 6 MP
-- Orange: 6-10 MP
-- Green: 10-20 MP
-- Blue: Over 20 MP
+- Loads images at original quality instead of the gallery preview.
+- Fixes aspect-ratio cropping and tightens the layout gaps.
+- Filters the gallery by megapixels, so low-resolution uploads stay out of the way.
+- Keeps your preferences in a settings panel between visits.
 
-**Quick Image Access**
-Click the MP badge to open the full-resolution image in a new tab.
+## Where it runs
 
-**Infinite Scroll Support**
-Automatically processes new images as they load during scrolling, ensuring all content benefits from the enhancement.
+- `civitai.com/*`
+- `civitai.red/*`
 
 ## Installation
 
-Install Tampermonkey for your browser:
-- [Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-- [Firefox](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/)
-- [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
-- [Safari](https://apps.apple.com/gb/app/tampermonkey/id1482490089)
+1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
+2. Open [`civitai-original-images.user.js`](civitai-original-images.user.js) and click **Raw**.
 
-Click on the Tampermonkey icon in your browser and select "Create a new script". Delete the default content and paste the script code. Save the script (File → Save or Ctrl+S).
-
-## Usage
-
-Navigate to [https://civitai.com/images](https://civitai.com/images). The script activates automatically and begins processing images as they appear.
-
-**MP Badge**
-The badge in the bottom-left corner of each image displays the resolution in megapixels. Click it to open the full-resolution image in a new tab. Hover over the badge to see exact dimensions.
-
-**Colour Coding**
-The border colour provides instant visual feedback about image quality, allowing you to quickly identify high-resolution content.
+Tampermonkey picks up the install prompt automatically. Updates are served through `@updateURL`, so later versions are offered without reinstalling.
 
 ## Configuration
 
-You can modify the `IMAGE_WIDTH` constant at the top of the script to adjust the display width (default: 600px).
+Defaults live in `DEFAULT_SETTINGS` and are persisted under `SETTINGS_KEY`. `IMAGE_WIDTH`, `MIN_IMAGE_SIZE` and `BADGE_MAX_DIMENSION` control the grid.
 
-```javascript
-const IMAGE_WIDTH = 600; // Change this value as needed
-```
+## How it works
 
-To adjust the megapixel colour thresholds, modify the `getBadgeColour` function.
+A single `.user.js` file of plain DOM code: no build step, no bundler, no external library.
 
-## Technical Details
+## Known limitations
 
-The script intercepts image URLs and converts them from the optimised format to the original format:
-
-**Before**
-```
-https://image.civitai.com/.../anim=false,width=450,optimised=true/image.jpeg
-```
-
-**After**
-```
-https://image.civitai.com/.../original=true,quality=100,anim=true
-```
-
-A temporary image loads in the background to retrieve original dimensions, which are then used to calculate the correct aspect ratio and megapixel count.
-
-## Browser Compatibility
-
-Tested and working on modern browsers with Tampermonkey support including Chrome, Firefox, Edge, and Safari.
-
-## Licence
-
-This script is released under the MIT Licence. Feel free to modify and distribute as needed.
-
-## Contributing
-
-Contributions, issues, and feature requests are welcome. Feel free to check the issues page if you want to contribute.
-
-## Acknowledgements
-
-Created for the Civitai community to enhance the image browsing experience.
-
-***
-
-Would you like me to adjust any section or add additional information such as troubleshooting tips or known limitations?
+- Selectors track the site's current markup and will need updating when it changes.
