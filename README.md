@@ -2,7 +2,7 @@
 
 Userscript serving full-resolution Civitai images, fixing cropping and adding a megapixel filter.
 
-[![Userscript](https://img.shields.io/badge/userscript-v2.13-blue)](civitai-original-images.user.js) [![No dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)](#how-it-works)
+[![Userscript](https://img.shields.io/badge/userscript-v2.13-blue)](civitai-original-images.user.js) [![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE) [![No dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)](#how-it-works)
 
 Civitai serves compressed previews and crops them to fit its grid. This script gives you the originals, uncropped.
 
@@ -36,3 +36,7 @@ A single `.user.js` file of plain DOM code: no build step, no bundler, no extern
 ## Known limitations
 
 - Selectors track the site's current markup and will need updating when it changes.
+
+## License
+
+[MIT](LICENSE) — use it, change it, redistribute it, no strings attached.
